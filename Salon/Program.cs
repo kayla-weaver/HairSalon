@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Builder;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Salon.Models;
 
 namespace Salon
 {
@@ -12,7 +14,7 @@ namespace Salon
 
       builder.Services.AddControllersWithViews();
 
-      builder.Services.AddDbContext<SalonContext>(
+      builder.Services.AddDbContext<SalonDbContext>(
                         dbContextOptions => dbContextOptions
                           .UseMySql(
                             builder.Configuration["ConnectionStrings:DefaultConnection"], ServerVersion.AutoDetect(builder.Configuration["ConnectionStrings:DefaultConnection"]
